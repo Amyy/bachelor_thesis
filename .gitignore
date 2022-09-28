@@ -1,0 +1,12 @@
+thesis.pdf
+*.lot
+*.aux
+*.log
+*.bbl
+*.blg
+*.loa
+*.lof
+*.out
+*.toc
+*.synctex.gz
+presentations/.~lock.*

@@ -1,0 +1,178 @@
+\documentclass{thesisclass}
+\usepackage{adjustbox}  
+\usepackage{tikz}
+\usepackage{subcaption}
+\usepackage{microtype}
+\usepackage{amsmath}
+%\usepackage{subfig}
+
+% suppress subsubsection for contents
+\setcounter{tocdepth}{2}
+% suppress numbering for subsubsection{}
+\setcounter{secnumdepth}{2}
+
+% Based on thesisclass.cls of Timo Rohrberg, 2009
+% ----------------------------------------------------------------
+% Thesis - Main document
+% ----------------------------------------------------------------
+
+
+%% -------------------------------
+%% |  Information for PDF file   |
+%% -------------------------------
+\hypersetup{
+ pdfauthor={},
+ pdftitle={},
+ pdfsubject={Not set},
+ pdfkeywords={Not set}
+}
+
+\newcommand{\tm}{\textsuperscript{\scriptsize\texttrademark}}
+\newcommand{\reg}{\textsuperscript{\scriptsize\textregistered}}
+%\newcommand{\copy}{\textsuperscript{\scriptsize\textcopyright}}
+
+%% ---------------------------------
+%% | Information about the thesis  |
+%% ---------------------------------
+
+\newcommand{\myname}{Amelie Wagner}
+\newcommand{\mytitle}{Image-based segmentation\\ and localization\\ of surgical instruments\\ using deep neural networks
+}
+
+\newcommand{\reviewerone}{Prof. Dr.-Ing. Stefanie Speidel}
+\newcommand{\reviewertwo}{Dr.-Ing. Sebastian Bodenstedt}
+\newcommand{\advisor}{Isabel Funke}
+% If there is a second advisor, uncomment in titlepage.tex!
+\newcommand{\advisortwo}{?}
+
+\newcommand{\timestart}{July 02, 2018}
+\newcommand{\timeend}{November 03, 2018}
+\newcommand{\submissiontime}{01. November 2018}
+
+
+%% ---------------------------------
+%% | ToDo Marker - only for draft! |
+%% ---------------------------------
+% Remove this section for final version!
+%\setlength{\marginparwidth}{20mm}
+
+
+%% --------------------------------
+%% | Settings for word separation |
+%% --------------------------------
+% Help for separation:
+% In  package the following hints are additionally available:
+% "- = Additional separation
+% "| = Suppress ligation and possible separation (e.g. Schaf"|fell)
+% "~ = Hyphenation without separation (e.g. bergauf und "~ab)
+% "= = Hyphenation with separation before and after
+% "" = Separation without a hyphenation (e.g. und/""oder)
+
+% Describe separation hints here:
+\hyphenation{
+% Pro-to-koll-in-stan-zen
+% Ma-na-ge-ment  Netz-werk-ele-men-ten
+% Netz-werk Netz-werk-re-ser-vie-rung
+% Netz-werk-adap-ter Fein-ju-stier-ung
+% Da-ten-strom-spe-zi-fi-ka-tion Pa-ket-rumpf
+% Kon-troll-in-stanz
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Here, main documents begins %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Uncomment the following line for English text
+\selectlanguage{english}
+\frontmatter
+\pagenumbering{roman}
+\include{titlepage}
+\blankpage
+
+\thispagestyle{empty}
+$\mbox{}$\vspace{15cm}$\mbox{}$\\
+Ich versichere hiermit, die vorliegende Arbeit selbstständig angefertigt zu haben. Die verwendeten Hilfsmittel und Quellen sind im Literaturverzeichnis
+vollständig aufgeführt.\\
+$\mbox{}$\vspace{2cm}$\mbox{}$\\
+Dresden, den 03 November, 2018\\
+$\mbox{}$\vspace{1cm}$\mbox{}$\\
+$\mbox{}$\hfill \\
+$\mbox{}$
+
+
+\clearpage
+
+% blank page
+\newpage
+\hfill
+\thispagestyle{empty}
+
+% abstract
+\newpage
+\thispagestyle{empty}
+\chapter*{\centering \iflanguage{english}{Abstract}{Zusammenfassung}} % Motivation
+Segmentation and localization of surgical instruments in endoscopic videos during minimally invasive surgery is a fundamental requirement for supporting the surgeon during this sophisticated surgical technique. 
+%What is Problem
+%In order to get the position information of the instrument directly out of the video frames, a CNN-based deep learning method is used.
+Here, a CNN-based deep learning method is used to get the positional information of the instrument directly
+out of the video frames without further modifications.
+%Method (how)
+In this work, the segmentation network TernausNet-11 is extended to a network that also solves the localization task. 
+The instrument segmentation is addressed as a binary problem, where every pixel of the input image is labeled as instrument or background. 
+The instrument location is obtained by the prediction of heatmaps where the center point of the instrument is located. That makes it possible for the network to use the information learned for the segmentation task to improve the localization results, as the weights of the network are shared for both tasks.
+%Results 
+All proposed methods are evaluated on the robotic dataset of MICCAI 2015 Endoscopic Vision subchallenge according to the challenge guidelines.
+The results of the experiments show that the proposed method is able to solve the segmentation task on the same level as state-of-the-art results. For the localization task, the models tested particularly on the test datasets achieve lower results than current state-of-the-art methods. The models trained in leave-one-surgery-out fashion outperform current state-of-the-art methods. 
+
+\newpage
+
+\newpage
+\hfill
+\thispagestyle{empty}
+
+% toc
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+\setcounter{page}{1}
+
+% blank page
+\newpage
+\hfill
+\thispagestyle{empty}
+\hfill
+\newpage
+
+%% -----------------
+%% |   Main part   |
+%% -----------------
+%add content here
+%it is preferable to create a file for each chapter of the document
+\mainmatter
+\pagenumbering{arabic}
+\include{chapters/introduction}
+\include{chapters/background}
+\include{chapters/state_of_art}
+\include{chapters/methods}
+\include{chapters/evaluation}
+\include{chapters/conclusion}
+
+\cleardoublepage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+%\listofalgorithms
+%\addcontentsline{toc}{chapter}{List of Algorithms}
+\cleardoublepage
+
+%% --------------------
+%% |   Bibliography   |
+%% --------------------
+\newpage
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{bibliography}
+\bibliographystyle{IEEEtran}
+\end{document}

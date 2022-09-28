@@ -1,0 +1,34 @@
+\chapter{Readme}
+
+As a placeholder, here are some hints for writing.
+You can remove this chapter when writing your thesis (remove the line \verb|\include{chapters/readme}| in thesis.tex).
+
+\section{Getting Started}
+\begin{itemize}
+\item First, decide on the language - if you want to write in German, comment out the line '\verb|\selectlanguage{english}|' in thesis.tex.
+\item We have Texmaker installed on most machines, but you can also use a Tex editor of your choice.
+\end{itemize}
+
+\section{Figures and Images}
+\begin{itemize}
+\item If possible, always use vector graphics.
+\item Recommended image formats: PDF, EPS, SVG
+\item If you want, you can use the Latex TIKZ package to draw beautiful, scaling images or graphs.
+\item Make sure that there is at least one reference to each figure and table somewhere in the text (use \verb|\ref{}|).
+\end{itemize}
+
+\section{Texmaker}
+You can use any Tex editor and compiler you want to, but here are some hints for Texmaker, which is installed on our system:
+\begin{itemize}
+\item Open thesis.tex and go to \emph{Options->Define Current Document as 'Master Document'}. This will always compile the full document (even if you're editing a sub-chapter).
+\item Go to \emph{Options->Configure Texmaker->Quick Build} to choose what the Quick Build command (F1) should do.
+\end{itemize}
+
+\section{General Hints}
+
+\begin{itemize}
+\item Cite using the \verb|\cite{}|  Latex command, and put the corresponding bibliography files into \emph{bibliography.bbl}.\\Example: The Dijkstra Algorithm \cite{dijkstra1959note} can be used to find the shortest path between two nodes in a graph.
+\item You can emphasize important names in-line by using the \verb|\emph{}| command.
+\item Introduce abbreviations when you first use them and consistently use them in the remainder of the text.
+\item Try to be done a few days before the deadline so that your supervisor gets a chance to proofread before you hand it in.
+\end{itemize}

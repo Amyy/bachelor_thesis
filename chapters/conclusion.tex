@@ -1,0 +1,21 @@
+\chapter{Conclusion}
+\label{cha:conclusion}
+
+% das habe ich gemacht
+In this work, the goal was to obtain a method for segmentation and localization of surgical instruments in endoscopic video frames.
+To solve this task, the segmentation CNN TernausNet-11~\cite{Shvets2018} is extended in order to predict localization of surgical instruments in endoscopic videos. This approach was recently proposed by Laina et al.~\cite{Laina2017}.
+% Did it meet the required goals defined in introduction chapter? Why/Why not?
+% das kam raus / What is the outcome of your evaluation?
+All models were trained and evaluated according to LOSO and T4 fashion of the EndoVis15 challenge (see section~\ref{sec:endovis15_robotic_train}),
+
+For the segmentation task, all models trained with loss factor $\gamma < 1$ achieved similar results. The results are in range of the current state-of-the-art methods.
+LOC-02 achieved the best segmentation results.
+
+All models trained according to the challenge guideline LOSO achieved better results than the models trained according to the T4 guidelines. The reason is probably that the ground truth annotations for the proposed test datasets are inaccurate, therefore correct predictions of the models are evaluated worse as they actually are.
+The model LOC-03 achieved the best prediction results for the LOSO training procedure, it outperforms the current state-of-the-art methods for this evaluation method.
+The model LOC-04 achieved the best prediction results for the T4 training procedure. The evaluation results are lower than for current state-of-the-art methods for this evaluation method.
+
+% in Zukunft: für tracking Verfahren nutzen / How can future work improve on your work?
+The proposed method could be used in combination with a temporal tracking algorithm in order to serve as input to trackers like Kalman filter or Particle filter.
+Temporal tracking would be helpful to deal with occlusions and associate each heatmap in the endoscopic video to the left or right instrument, even when the instrument are crossing.
+

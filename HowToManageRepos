@@ -1,0 +1,36 @@
+source: https://steveperkins.com/migrating-projects-from-github-to-gitlab/
+Changed decription for primary host: GitHub
+(GitLab only reachable out of university clinicum network)
+
+Set Github to primary host. (git remote set-url origin git@github.com:Amyy/thesis-template.git)
+Then add GitLab as remote:
+
+git remote add gitlab git@g27vmgitlab:WAGNERAME/thesis-template.git
+
+Now, you can interact with GitLab or GitHub specifically.
+“origin” name: refers to your primary host, Github.  
+This new “github” remote name refers to GitLab 
+(and you’re free to use any other name you like instead, it’s only for human-readability).
+
+To push changes to either repository, use:
+
+git push origin   (GitHub)
+
+git push gitlab   (GitLab)
+
+You would pull down changes in similar fashion:
+
+git pull origin   (GitHub)
+
+git pull gitlab   (GitLab)
+
+As you do work on your GitHub primary host:
+You would just periodically update the GitHub mirror by pushing the “master” branch there.
+Conversely, if someone in the community submits a pull request to your GitLab mirror, then the workflow would look like:
+
+    Review and merge the pull request on GitLab
+    Pull “master” into your local workspace
+    Push “master” to GitHub
+
+This is definitely a bit more manual shuffling than you would have with a single remote.
+However, it gives you maximum flexibility, and after a time or two it becomes automatic.
