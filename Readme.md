@@ -1,6 +1,6 @@
 # Bachelorthesis
 ## Image-based segmentation and localization of surgical instruments using deep neural networks
-Here you can find my [bachelorthesis]{https://github.com/Amyy/bachelor_thesis/blob/main/thesis.pdf} and the corresponding LaTeX sourcecode.
+Here you can find my [bachelorthesis](https://github.com/Amyy/bachelor_thesis/blob/main/thesis.pdf) and the corresponding LaTeX sourcecode.
 
 ### Abstract
 Segmentation and localization of surgical instruments in endoscopic videos during minimally
